@@ -1,125 +1,919 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ekalavya Fitness</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ekalavya Fitness | Transform Your Body</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: #050505;
+      border-bottom: 1px solid #222;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 15px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      color: #ffc400;
+    }
+
+    .logo span {
+      display: block;
+      color: white;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav ul a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav ul a:hover {
+      color: #ffc400;
+    }
+
+    .nav-btn,
+    .btn {
+      background: #ffc400;
+      color: #000;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .nav-btn:hover,
+    .btn:hover {
+      background: white;
+      transform: translateY(-2px);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.35)),
+        url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      margin: auto;
+      padding: 50px 25px;
+    }
+
+    .hero h1 {
+      max-width: 650px;
+      font-size: clamp(45px, 7vw, 85px);
+      line-height: .95;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .hero h1 span {
+      color: #ffc400;
+    }
+
+    .hero p {
+      max-width: 520px;
+      margin: 25px 0;
+      font-size: 18px;
+      color: #ddd;
+    }
+
+    /* STATS */
+    .stats {
+      background: #111;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1100px;
+      margin: -45px auto 0;
+      position: relative;
+      border-radius: 8px;
+      padding: 25px;
+    }
+
+    .stat {
+      text-align: center;
+      border-right: 1px solid #333;
+    }
+
+    .stat:last-child {
+      border: none;
+    }
+
+    .stat h3 {
+      color: #ffc400;
+      font-size: 25px;
+    }
+
+    /* GENERAL */
+    section {
+      padding: 80px 25px;
+    }
+
+    .container {
+      max-width: 1150px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 40px;
+      text-transform: uppercase;
+    }
+
+    .section-title span {
+      color: #ffc400;
+    }
+
+    /* ABOUT */
+    .about {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .about img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .about h2 {
+      font-size: 42px;
+      margin-bottom: 20px;
+    }
+
+    .about h2 span {
+      color: #e5aa00;
+    }
+
+    .about p {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    /* SERVICES */
+    .services {
+      background: #0b0b0b;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .service {
+      background: #171717;
+      border: 1px solid #292929;
+      border-radius: 10px;
+      overflow: hidden;
+      transition: .3s;
+    }
+
+    .service:hover {
+      transform: translateY(-8px);
+      border-color: #ffc400;
+    }
+
+    .service img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 20px;
+    }
+
+    .service h3 {
+      color: #ffc400;
+      margin-bottom: 10px;
+    }
+
+    /* WHY US */
+    .why {
+      background: #151515;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      padding: 30px 20px;
+      background: #0c0c0c;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .why-card .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .why-card h3 {
+      color: #ffc400;
+    }
+
+    /* PRICING */
+    .pricing {
+      background: #0b0b0b;
+    }
+
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .price-card {
+      background: #151515;
+      border: 1px solid #444;
+      padding: 35px 25px;
+      border-radius: 12px;
+      text-align: center;
+      transition: .3s;
+    }
+
+    .price-card.popular {
+      border: 2px solid #ffc400;
+      transform: scale(1.04);
+    }
+
+    .popular-label {
+      background: #ffc400;
+      color: #000;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .price-card h3 {
+      font-size: 22px;
+    }
+
+    .price {
+      color: #ffc400;
+      font-size: 42px;
+      font-weight: 900;
+      margin: 15px 0;
+    }
+
+    .price-card ul {
+      list-style: none;
+      text-align: left;
+      margin: 25px 0;
+    }
+
+    .price-card li {
+      padding: 7px 0;
+      color: #ddd;
+    }
+
+    .price-card li::before {
+      content: "✓ ";
+      color: #ffc400;
+      font-weight: bold;
+    }
+
+    /* GALLERY */
+    .gallery {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: .3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    /* CONTACT */
+    .contact {
+      background: #111;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 50px;
+    }
+
+    .contact-info h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info span {
+      color: #ffc400;
+    }
+
+    .contact-info p {
+      margin: 15px 0;
+      color: #ccc;
+    }
+
+    form {
+      background: #191919;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      background: #0d0d0d;
+      color: white;
+      border: 1px solid #444;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #ffc400;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    form .btn {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #050505;
+      text-align: center;
+      padding: 25px;
+      color: #aaa;
+      border-top: 1px solid #222;
+    }
+
+    footer span {
+      color: #ffc400;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .stats,
+      .service-grid,
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .price-card.popular {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .nav-btn {
+        display: none;
+      }
+
+      .hero {
+        min-height: 600px;
+      }
+
+      .stats,
+      .service-grid,
+      .why-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid #333;
+        padding: 15px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      section {
+        padding: 55px 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Ekalavya Fitness</h1>
+  <!-- NAVBAR -->
+  <header>
+    <nav>
+      <div class="logo">
+        🏋️ EKALAVYA
+        <span>FITNESS</span>
+      </div>
 
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+        <li><a href="#gallery">GALLERY</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
 
-    <section id="home" class="hero">
-        <h2>Build Your Stronger Self</h2>
-        <p>Train hard. Stay strong. Stay healthy.</p>
-        <button type="button" 
-        onclick="showForm()">Join Now</button>
-    </section>
-    <section id="join-form" class="join-form">
-    <h2>Join Ekalavya Fitness</h2>
-    <p>Fill in your details and start your fitness journey.</p>
+      <a href="#contact" class="nav-btn">JOIN NOW</a>
+    </nav>
+  </header>
 
-    <form
-     action="https://formspree.io/f/xrpzlobo"
-     method="POST">
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
 
-        <input type="email" id="email" name="email" placeholder="Email Address" required>
+      <h1>
+        TRANSFORM<br>
+        YOUR BODY,<br>
+        <span>TRANSFORM<br>YOUR LIFE</span>
+      </h1>
 
-        <select id="goal" name="goal" required>
-            <option value="">Select Your Goal</option>
-            <option>Build Muscle</option>
-            <option>Lose Weight</option>
-            <option>Improve Fitness</option>
-            <option>Personal Training</option>
-        </select>
+      <p>
+        Join Ekalavya Fitness and start your journey
+        towards a stronger, healthier and better you.
+      </p>
 
-        <button type="submit">Submit</button>
-    </form>
-</section>
-
-    <section id="about">
-        <h2>About Us</h2>
-        <p>
-            Ekalavya Fitness is a modern gym focused on helping
-            people achieve their fitness goals.
-        </p>
-    </section>
-
-    <section id="services">
-    <h2>Our Services</h2>
-    <p>Everything you need to achieve your fitness goals.</p>
-
-    <div class="services">
-
-        <div class="service-card">
-            <h3>💪 Weight Training</h3>
-            <p>Build strength and muscle with professional equipment.</p>
-        </div>
-
-        <div class="service-card">
-            <h3>🏃 Cardio</h3>
-            <p>Improve your stamina and overall fitness with cardio workouts.</p>
-        </div>
-
-        <div class="service-card">
-            <h3>🏋️ Personal Training</h3>
-            <p>Get a personalized workout plan with expert guidance.</p>
-        </div>
+      <a href="#pricing" class="btn">JOIN NOW →</a>
 
     </div>
-</section>
-<section id="contact">
-    <h2>Contact Us</h2>
+  </section>
+
+
+  <!-- STATS -->
+  <div class="stats">
+
+    <div class="stat">
+      <h3>5+</h3>
+      <p>Years Experience</p>
+    </div>
+
+    <div class="stat">
+      <h3>1000+</h3>
+      <p>Happy Members</p>
+    </div>
+
+    <div class="stat">
+      <h3>10+</h3>
+      <p>Certified Trainers</p>
+    </div>
+
+    <div class="stat">
+      <h3>50+</h3>
+      <p>Modern Equipment</p>
+    </div>
+
+  </div>
+
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+
+    <div class="container about-grid">
+
+      <img
+        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80"
+        alt="Ekalavya Fitness Gym">
+
+      <div>
+        <h2>
+          WELCOME TO <span>EKALAVYA FITNESS</span>
+        </h2>
+
+        <p>
+          Ekalavya Fitness is more than just a gym.
+          It's a community built on discipline, dedication
+          and passion.
+        </p>
+
+        <p>
+          Our goal is to help you become stronger,
+          healthier and more confident.
+        </p>
+
+        <a href="#contact" class="btn">START YOUR JOURNEY</a>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WHY CHOOSE US -->
+  <section class="why">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>WHY <span>CHOOSE US</span></h2>
+      </div>
+
+      <div class="why-grid">
+
+        <div class="why-card">
+          <div class="icon">🏆</div>
+          <h3>Certified Trainers</h3>
+          <p>Expert trainers provide personal guidance and support.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="icon">🏋️</div>
+          <h3>Modern Equipment</h3>
+          <p>Latest equipment for effective and powerful workouts.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="icon">⏰</div>
+          <h3>Flexible Timing</h3>
+          <p>Train at a time that works best for your schedule.</p>
+        </div>
+
+        <div class="why-card">
+          <div class="icon">🥗</div>
+          <h3>Nutrition Guidance</h3>
+          <p>Get customized diet and nutrition guidance.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>OUR <span>SERVICES</span></h2>
+      </div>
+
+      <div class="service-grid">
+
+        <div class="service">
+          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80">
+          <div class="service-content">
+            <h3>WEIGHT TRAINING</h3>
+            <p>Build muscle, strength and improve your overall fitness.</p>
+          </div>
+        </div>
+
+        <div class="service">
+          <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80">
+          <div class="service-content">
+            <h3>CARDIO FITNESS</h3>
+            <p>Improve stamina, burn fat and keep your heart healthy.</p>
+          </div>
+        </div>
+
+        <div class="service">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80">
+          <div class="service-content">
+            <h3>PERSONAL TRAINING</h3>
+            <p>One-to-one training designed around your goals.</p>
+          </div>
+        </div>
+
+        <div class="service">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80">
+          <div class="service-content">
+            <h3>STRENGTH TRAINING</h3>
+            <p>Increase power, endurance and build real strength.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>MEMBERSHIP <span>PLANS</span></h2>
+        <p>Choose the plan that fits you</p>
+      </div>
+
+      <div class="price-grid">
+
+        <!-- MONTHLY -->
+        <div class="price-card">
+
+          <h3>MONTHLY PLAN</h3>
+
+          <div class="price">₹499</div>
+
+          <p>per month</p>
+
+          <ul>
+            <li>Gym Access</li>
+            <li>Basic Fitness Guidance</li>
+            <li>Locker Facility</li>
+            <li>Workout Support</li>
+          </ul>
+
+          <a href="#contact" class="btn">JOIN NOW</a>
+
+        </div>
+
+
+        <!-- QUARTERLY -->
+        <div class="price-card popular">
+
+          <div class="popular-label">MOST POPULAR</div>
+
+          <h3>QUARTERLY PLAN</h3>
+
+          <div class="price">₹1,299</div>
+
+          <p>for 3 months</p>
+
+          <ul>
+            <li>Gym Access</li>
+            <li>Personal Training</li>
+            <li>Diet Guidance</li>
+            <li>Locker Facility</li>
+          </ul>
+
+          <a href="#contact" class="btn">JOIN NOW</a>
+
+        </div>
+
+
+        <!-- YEARLY -->
+        <div class="price-card">
+
+          <h3>YEARLY PLAN</h3>
+
+          <div class="price">₹3,999</div>
+
+          <p>per year</p>
+
+          <ul>
+            <li>Gym Access</li>
+            <li>Personal Training</li>
+            <li>Diet Plan</li>
+            <li>Priority Support</li>
+          </ul>
+
+          <a href="#contact" class="btn">JOIN NOW</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>GYM <span>GALLERY</span></h2>
+      </div>
+
+      <div class="gallery-grid">
+
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80">
+
+        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80">
+
+        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80">
+
+        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80">
+
+        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80">
+
+        <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=800&q=80">
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <div class="container contact-grid">
+
+      <div class="contact-info">
+
+        <h2>
+          JOIN <span>EKALAVYA FITNESS</span>
+        </h2>
+
+        <p>
+          Ready to transform your body and your life?
+          Fill the form and our team will contact you.
+        </p>
+
+        <p>📞 9931690987</p>
+        <p>📧 onelove222009@gmail.com</p>
+        <p>📍 Greater Noida, Uttar Pradesh, India</p>
+
+      </div>
+
+
+      <!-- FORMSPREE FORM -->
+      <form
+        action="https://formspree.io/f/xrpzlobo"
+        method="POST"
+      >
+
+        <div class="form-row">
+
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            required
+          >
+
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          >
+
+        </div>
+
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          required
+        >
+
+        <select name="plan" required>
+
+          <option value="">Select Membership Plan</option>
+
+          <option value="Monthly - ₹499">
+            Monthly - ₹499
+          </option>
+
+          <option value="Quarterly - ₹1299">
+            Quarterly - ₹1,299
+          </option>
+
+          <option value="Yearly - ₹3999">
+            Yearly - ₹3,999
+          </option>
+
+        </select>
+
+        <textarea
+          name="message"
+          placeholder="Your Message"
+        ></textarea>
+
+        <button type="submit" class="btn">
+          SUBMIT NOW →
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
 
     <p>
-        Phone:
-        <a href="tel:9931690987">9931690987</a>
+      © 2026 <span>Ekalavya Fitness</span>.
+      All Rights Reserved.
     </p>
 
-    <p>
-        Email:
-        <a href="mailto:onelove222009@gmail.com">
-            onelove222009@gmail.com
-        </a>
-    </p>
-
-    <p>
-        WhatsApp:
-        <a href="https://wa.me/919931690987" target="_blank">
-            Chat on WhatsApp
-        </a>
-    </p>
-
-    <p>
-        GitHub:
-        <a href="https://github.com/ekal9931690987-wq" target="_blank">
-            Visit My GitHub
-        </a>
-    </p>
-</section>
-
-
-    </section>
-
-    <footer>
-        <p>© 2026 Ekalavya Fitness</p>
-    </footer>
-
-    <script src="script.jss"></script>
+  </footer>
 
 </body>
 </html>
