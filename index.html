@@ -30,14 +30,16 @@
     <h2>Join Ekalavya Fitness</h2>
     <p>Fill in your details and start your fitness journey.</p>
 
-    <form onsubmit="submitForm(event)">
-        <input type="text" id="name" placeholder="Your Name" required>
+    <form
+     action="https://formspree.io/f/xrpzlobo"
+     method="POST">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
 
-        <input type="tel" id="phone" placeholder="Phone Number" required>
+        <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
 
-        <input type="email" id="email" placeholder="Email Address" required>
+        <input type="email" id="email" name="email" placeholder="Email Address" required>
 
-        <select id="goal" required>
+        <select id="goal" name="goal" required>
             <option value="">Select Your Goal</option>
             <option>Build Muscle</option>
             <option>Lose Weight</option>
