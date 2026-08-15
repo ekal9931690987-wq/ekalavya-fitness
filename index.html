@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +22,10 @@
       line-height: 1.6;
     }
 
-    /* NAVBAR */
+    /* =========================
+       NAVBAR
+    ========================= */
+
     header {
       position: sticky;
       top: 0;
@@ -37,6 +41,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     .logo {
@@ -56,6 +61,7 @@
       display: flex;
       list-style: none;
       gap: 25px;
+      align-items: center;
     }
 
     nav ul a {
@@ -63,10 +69,15 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 14px;
+      transition: 0.3s;
     }
 
     nav ul a:hover {
       color: #ffc400;
+    }
+
+    .github-nav {
+      color: #ffc400 !important;
     }
 
     .nav-btn,
@@ -80,6 +91,7 @@
       text-decoration: none;
       cursor: pointer;
       display: inline-block;
+      transition: 0.3s;
     }
 
     .nav-btn:hover,
@@ -88,14 +100,29 @@
       transform: translateY(-2px);
     }
 
-    /* HERO */
+    .menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
+
     .hero {
       min-height: 650px;
       display: flex;
       align-items: center;
+
       background:
-        linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.35)),
+        linear-gradient(90deg, rgba(0, 0, 0, .95), rgba(0, 0, 0, .35)),
         url("https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1600&q=80");
+
       background-size: cover;
       background-position: center;
     }
@@ -126,7 +153,23 @@
       color: #ddd;
     }
 
-    /* STATS */
+    .hero-badge {
+      display: inline-block;
+      margin: 20px 0;
+      padding: 10px 18px;
+      border: 1px solid #ffc400;
+      border-radius: 30px;
+      color: #ffc400;
+      font-size: 14px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, .5);
+    }
+
+
+    /* =========================
+       STATS
+    ========================= */
+
     .stats {
       background: #111;
       display: grid;
@@ -136,6 +179,7 @@
       position: relative;
       border-radius: 8px;
       padding: 25px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
     }
 
     .stat {
@@ -152,7 +196,11 @@
       font-size: 25px;
     }
 
-    /* GENERAL */
+
+    /* =========================
+       GENERAL
+    ========================= */
+
     section {
       padding: 80px 25px;
     }
@@ -176,7 +224,16 @@
       color: #ffc400;
     }
 
-    /* ABOUT */
+    .section-title p {
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
+
     .about {
       background: #f5f5f5;
       color: #111;
@@ -208,7 +265,78 @@
       margin-bottom: 20px;
     }
 
-    /* SERVICES */
+    .about-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .about-info div {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      border-left: 4px solid #ffc400;
+    }
+
+    .about-info strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .about-info span {
+      color: #555;
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       WHY US
+    ========================= */
+
+    .why {
+      background: #151515;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      padding: 30px 20px;
+      background: #0c0c0c;
+      border-radius: 10px;
+      text-align: center;
+      border: 1px solid #222;
+      transition: .3s;
+    }
+
+    .why-card:hover {
+      transform: translateY(-8px);
+      border-color: #ffc400;
+    }
+
+    .why-card .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+
+    .why-card h3 {
+      color: #ffc400;
+      margin-bottom: 10px;
+    }
+
+    .why-card p {
+      color: #ccc;
+    }
+
+
+    /* =========================
+       SERVICES
+    ========================= */
+
     .services {
       background: #0b0b0b;
     }
@@ -246,35 +374,117 @@
       color: #ffc400;
       margin-bottom: 10px;
     }
-  
-    /* WHY US */
-    .why {
-      background: #151515;
+
+    .service p {
+      color: #ccc;
     }
 
-    .why-grid {
+
+    /* =========================
+       TESTIMONIALS
+    ========================= */
+
+    .testimonials {
+      background: #f5f5f5;
+      color: #111;
+    }
+
+    .testimonials .section-title p {
+      color: #555;
+    }
+
+    .testimonial-grid {
+      max-width: 1150px;
+      margin: auto;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
     }
 
-    .why-card {
-      padding: 30px 20px;
-      background: #0c0c0c;
-      border-radius: 10px;
-      text-align: center;
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, .08);
+      transition: .3s;
     }
 
-    .why-card .icon {
-      font-size: 40px;
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .stars {
+      color: #ffc400;
+      font-size: 22px;
       margin-bottom: 15px;
     }
 
-    .why-card h3 {
-      color: #ffc400;
+    .testimonial-card p {
+      color: #444;
+      margin-bottom: 20px;
     }
-    
-    /* PRICING */
+
+    .testimonial-card h3 {
+      margin-bottom: 3px;
+    }
+
+    .testimonial-card span {
+      color: #777;
+      font-size: 14px;
+    }
+
+
+    /* =========================
+       BMI CALCULATOR
+    ========================= */
+
+    .bmi-section {
+      background: #151515;
+    }
+
+    .bmi-box {
+      max-width: 500px;
+      margin: auto;
+      background: #0c0c0c;
+      padding: 35px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      text-align: center;
+    }
+
+    .bmi-box input {
+      margin-bottom: 15px;
+    }
+
+    .bmi-box button {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 5px;
+      background: #ffc400;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .bmi-box button:hover {
+      background: white;
+    }
+
+    #bmiResult {
+      margin-top: 25px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffc400;
+      min-height: 30px;
+    }
+
+
+    /* =========================
+       PRICING
+    ========================= */
+
     .pricing {
       background: #0b0b0b;
     }
@@ -296,9 +506,18 @@
       transition: .3s;
     }
 
+    .price-card:hover {
+      transform: translateY(-8px);
+      border-color: #ffc400;
+    }
+
     .price-card.popular {
       border: 2px solid #ffc400;
       transform: scale(1.04);
+    }
+
+    .price-card.popular:hover {
+      transform: scale(1.04) translateY(-8px);
     }
 
     .popular-label {
@@ -323,6 +542,10 @@
       margin: 15px 0;
     }
 
+    .price-card > p {
+      color: #aaa;
+    }
+
     .price-card ul {
       list-style: none;
       text-align: left;
@@ -340,7 +563,11 @@
       font-weight: bold;
     }
 
-    /* GALLERY */
+
+    /* =========================
+       GALLERY
+    ========================= */
+
     .gallery {
       background: #f5f5f5;
       color: #111;
@@ -364,7 +591,11 @@
       transform: scale(1.03);
     }
 
-    /* CONTACT */
+
+    /* =========================
+       CONTACT
+    ========================= */
+
     .contact {
       background: #111;
     }
@@ -430,7 +661,69 @@
       font-size: 16px;
     }
 
-    /* FOOTER */
+    .map-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 18px;
+      background: #ffc400;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .map-button:hover {
+      background: white;
+    }
+
+    .whatsapp-contact {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      padding: 12px 18px;
+      width: fit-content;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .whatsapp-contact:hover {
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================
+       GITHUB
+    ========================= */
+
+    .github-link {
+      background: #050505;
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #222;
+    }
+
+    .github-link a {
+      color: #ffc400;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .3s;
+    }
+
+    .github-link a:hover {
+      color: white;
+    }
+
+
+    /* =========================
+       FOOTER
+    ========================= */
+
     footer {
       background: #050505;
       text-align: center;
@@ -443,14 +736,21 @@
       color: #ffc400;
     }
 
-    /* MOBILE */
-    @media (max-width: 900px) {
+
+    /* =========================
+       MOBILE / TABLET
+    ========================= */
+
+    @media (max-width: 1000px) {
 
       nav ul {
-        display: none;
+        gap: 15px;
       }
 
-      .stats,
+      nav ul a {
+        font-size: 12px;
+      }
+
       .service-grid,
       .why-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -463,105 +763,246 @@
 
       .price-grid {
         grid-template-columns: 1fr;
+        max-width: 500px;
       }
 
       .price-card.popular {
         transform: none;
       }
+
+      .price-card.popular:hover {
+        transform: translateY(-8px);
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+      }
     }
 
-    @media (max-width: 600px) {
+
+    @media (max-width: 900px) {
+
+      nav ul {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
 
       .nav-btn {
         display: none;
       }
 
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+
+      .stat:nth-child(2) {
+        border-right: none;
+      }
+
+      .stat:nth-child(1),
+      .stat:nth-child(2) {
+        padding-bottom: 15px;
+      }
+
+      .stat:nth-child(3),
+      .stat:nth-child(4) {
+        padding-top: 15px;
+      }
+    }
+
+
+    @media (max-width: 600px) {
+
       .hero {
         min-height: 600px;
-      }
-
-      .stats,
-      .service-grid,
-      .why-grid,
-      .gallery-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stat {
-        border-right: none;
-        border-bottom: 1px solid #333;
-        padding: 15px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
       }
 
       .hero h1 {
         font-size: 48px;
       }
 
+      .hero-badge {
+        font-size: 11px;
+        padding: 8px 12px;
+      }
+
       section {
         padding: 55px 18px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+        border-radius: 0;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .stat {
+        border-right: none;
+        border-bottom: 1px solid #333;
+        padding: 15px !important;
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .service-grid,
+      .why-grid,
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .about-info {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+      }
+
+      .about h2,
+      .contact-info h2 {
+        font-size: 32px;
+      }
+
+      .bmi-box {
+        padding: 25px 18px;
+      }
+
+      form {
+        padding: 20px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVBAR -->
+  <!-- =========================
+       NAVBAR
+  ========================= -->
+
   <header>
     <nav>
+
       <div class="logo">
         🏋️ EKALAVYA
         <span>FITNESS</span>
       </div>
 
       <ul id="mobileMenu">
-        <li><a href="#home">HOME</a></li>
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#services">SERVICES</a></li>
-        <li><a href="#pricing">PRICING</a></li>
-        <li><a href="#gallery">GALLERY</a></li>
-        <li><a href="#contact">CONTACT</a></li>
+
         <li>
-  <a href="https://github.com/ekal9931690987-wq" target="_blank" class="github-nav">
-    GITHUB ↗
-  </a>
-</li>
+          <a href="#home">HOME</a>
+        </li>
+
+        <li>
+          <a href="#about">ABOUT</a>
+        </li>
+
+        <li>
+          <a href="#services">SERVICES</a>
+        </li>
+
+        <li>
+          <a href="#pricing">PRICING</a>
+        </li>
+
+        <li>
+          <a href="#gallery">GALLERY</a>
+        </li>
+
+        <li>
+          <a href="#testimonials">REVIEWS</a>
+        </li>
+
+        <li>
+          <a href="#bmi">BMI</a>
+        </li>
+
+        <li>
+          <a href="#contact">CONTACT</a>
+        </li>
+
+        <li>
+          <a
+            href="https://github.com/ekal9931690987-wq"
+            target="_blank"
+            class="github-nav">
+            GITHUB ↗
+          </a>
+        </li>
+
       </ul>
 
-      <a href="#contact" class="nav-btn">JOIN NOW</a>
-      <button class="menu-btn" id="menuButton" onclick="toggleMenu()">☰</button>
+      <a href="#contact" class="nav-btn">
+        JOIN NOW
+      </a>
+
+      <button
+        class="menu-btn"
+        id="menuButton"
+        onclick="toggleMenu()">
+        ☰
+      </button>
+
     </nav>
   </header>
 
 
-  <!-- HERO -->
+  <!-- =========================
+       HERO
+  ========================= -->
+
   <section class="hero" id="home">
+
     <div class="hero-content">
 
       <h1>
         TRANSFORM<br>
         YOUR BODY,<br>
-        <span>TRANSFORM<br>YOUR LIFE</span>
+        <span>
+          TRANSFORM<br>
+          YOUR LIFE
+        </span>
       </h1>
-       <div class="hero-badge">
-  📍 GREATER NOIDA &nbsp; | &nbsp; 🏋️ OPENING 15 AUGUST
-</div>
+
+      <div class="hero-badge">
+        📍 GREATER NOIDA &nbsp; | &nbsp; 🏋️ OPENING 15 AUGUST
+      </div>
+
       <p>
         Join Ekalavya Fitness and start your journey
         towards a stronger, healthier and better you.
       </p>
 
-      <a href="#pricing" class="btn">JOIN NOW →</a>
+      <a href="#pricing" class="btn">
+        JOIN NOW →
+      </a>
 
     </div>
+
   </section>
 
 
-  <!-- STATS -->
+  <!-- =========================
+       STATS
+  ========================= -->
+
   <div class="stats">
 
     <div class="stat">
@@ -587,7 +1028,10 @@
   </div>
 
 
-  <!-- ABOUT -->
+  <!-- =========================
+       ABOUT
+  ========================= -->
+
   <section class="about" id="about">
 
     <div class="container about-grid">
@@ -597,48 +1041,53 @@
         alt="Ekalavya Fitness Gym">
 
       <div>
+
         <h2>
-  WELCOME TO <span>EKALAVYA FITNESS</span>
-</h2>
+          WELCOME TO
+          <span>EKALAVYA FITNESS</span>
+        </h2>
 
-<p>
-  Located in Greater Noida, Ekalavya Fitness is built
-  for people who are ready to become stronger, healthier
-  and more confident.
-</p>
+        <p>
+          Located in Greater Noida, Ekalavya Fitness is built
+          for people who are ready to become stronger, healthier
+          and more confident.
+        </p>
 
-<p>
-  We believe fitness is not just about lifting weights.
-  It's about discipline, consistency and building a
-  stronger version of yourself every day.
-</p>
+        <p>
+          We believe fitness is not just about lifting weights.
+          It's about discipline, consistency and building a
+          stronger version of yourself every day.
+        </p>
 
-<p>
-  From weight training and cardio to strength training,
-  personal training and nutrition guidance, we provide
-  everything you need to work towards your fitness goals.
-</p>
+        <p>
+          From weight training and cardio to strength training,
+          personal training and nutrition guidance, we provide
+          everything you need to work towards your fitness goals.
+        </p>
 
-<div class="about-info">
-  <div>
-    <strong>📍 Location</strong>
-    <span>Greater Noida</span>
-  </div>
+        <div class="about-info">
 
-  <div>
-    <strong>📅 Since</strong>
-    <span>15 August</span>
-  </div>
+          <div>
+            <strong>📍 Location</strong>
+            <span>Greater Noida</span>
+          </div>
 
-  <div>
-    <strong>💪 Focus</strong>
-    <span>Strength & Fitness</span>
-  </div>
-</div>
+          <div>
+            <strong>📅 Since</strong>
+            <span>15 August</span>
+          </div>
 
-<a href="#contact" class="btn">START YOUR JOURNEY</a>
+          <div>
+            <strong>💪 Focus</strong>
+            <span>Strength & Fitness</span>
+          </div>
 
-        <a href="#contact" class="btn">START YOUR JOURNEY</a>
+        </div>
+
+        <a href="#contact" class="btn">
+          START YOUR JOURNEY
+        </a>
+
       </div>
 
     </div>
@@ -646,39 +1095,88 @@
   </section>
 
 
-  <!-- WHY CHOOSE US -->
+  <!-- =========================
+       WHY CHOOSE US
+  ========================= -->
+
   <section class="why">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>WHY <span>CHOOSE US</span></h2>
+        <h2>
+          WHY
+          <span>CHOOSE US</span>
+        </h2>
       </div>
 
       <div class="why-grid">
 
         <div class="why-card">
-          <div class="icon">🏆</div>
-          <h3>Certified Trainers</h3>
-          <p>Expert trainers provide personal guidance and support.</p>
+
+          <div class="icon">
+            🏆
+          </div>
+
+          <h3>
+            Certified Trainers
+          </h3>
+
+          <p>
+            Expert trainers provide personal guidance and support.
+          </p>
+
         </div>
 
-        <div class="why-card">
-          <div class="icon">🏋️</div>
-          <h3>Modern Equipment</h3>
-          <p>Latest equipment for effective and powerful workouts.</p>
-        </div>
 
         <div class="why-card">
-          <div class="icon">⏰</div>
-          <h3>Flexible Timing</h3>
-          <p>Train at a time that works best for your schedule.</p>
+
+          <div class="icon">
+            🏋️
+          </div>
+
+          <h3>
+            Modern Equipment
+          </h3>
+
+          <p>
+            Latest equipment for effective and powerful workouts.
+          </p>
+
         </div>
 
+
         <div class="why-card">
-          <div class="icon">🥗</div>
-          <h3>Nutrition Guidance</h3>
-          <p>Get customized diet and nutrition guidance.</p>
+
+          <div class="icon">
+            ⏰
+          </div>
+
+          <h3>
+            Flexible Timing
+          </h3>
+
+          <p>
+            Train at a time that works best for your schedule.
+          </p>
+
+        </div>
+
+
+        <div class="why-card">
+
+          <div class="icon">
+            🥗
+          </div>
+
+          <h3>
+            Nutrition Guidance
+          </h3>
+
+          <p>
+            Get customized diet and nutrition guidance.
+          </p>
+
         </div>
 
       </div>
@@ -688,48 +1186,110 @@
   </section>
 
 
-  <!-- SERVICES -->
+  <!-- =========================
+       SERVICES
+  ========================= -->
+
   <section class="services" id="services">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>OUR <span>SERVICES</span></h2>
+
+        <h2>
+          OUR
+          <span>SERVICES</span>
+        </h2>
+
       </div>
+
 
       <div class="service-grid">
 
-        <div class="service">
-          <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80">
-          <div class="service-content">
-            <h3>WEIGHT TRAINING</h3>
-            <p>Build muscle, strength and improve your overall fitness.</p>
-          </div>
-        </div>
 
         <div class="service">
-          <img src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80">
+
+          <img
+            src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80"
+            alt="Weight Training">
+
           <div class="service-content">
-            <h3>CARDIO FITNESS</h3>
-            <p>Improve stamina, burn fat and keep your heart healthy.</p>
+
+            <h3>
+              WEIGHT TRAINING
+            </h3>
+
+            <p>
+              Build muscle, strength and improve your overall fitness.
+            </p>
+
           </div>
+
         </div>
 
-        <div class="service">
-          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80">
-          <div class="service-content">
-            <h3>PERSONAL TRAINING</h3>
-            <p>One-to-one training designed around your goals.</p>
-          </div>
-        </div>
 
         <div class="service">
-          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80">
+
+          <img
+            src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c?auto=format&fit=crop&w=800&q=80"
+            alt="Cardio Fitness">
+
           <div class="service-content">
-            <h3>STRENGTH TRAINING</h3>
-            <p>Increase power, endurance and build real strength.</p>
+
+            <h3>
+              CARDIO FITNESS
+            </h3>
+
+            <p>
+              Improve stamina, burn fat and keep your heart healthy.
+            </p>
+
           </div>
+
         </div>
+
+
+        <div class="service">
+
+          <img
+            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80"
+            alt="Personal Training">
+
+          <div class="service-content">
+
+            <h3>
+              PERSONAL TRAINING
+            </h3>
+
+            <p>
+              One-to-one training designed around your goals.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="service">
+
+          <img
+            src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+            alt="Strength Training">
+
+          <div class="service-content">
+
+            <h3>
+              STRENGTH TRAINING
+            </h3>
+
+            <p>
+              Increase power, endurance and build real strength.
+            </p>
+
+          </div>
+
+        </div>
+
 
       </div>
 
@@ -737,143 +1297,307 @@
 
   </section>
 
- <!-- TESTIMONIALS -->
 
-<section class="testimonials" id="testimonials">
+  <!-- =========================
+       TESTIMONIALS
+  ========================= -->
 
-  <div class="section-title">
-    <h2>WHAT OUR <span>MEMBERS SAY</span></h2>
-    <p>Real experiences from Ekalavya Fitness members</p>
-  </div>
-
-  <div class="testimonial-grid">
-
-    <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p>"Amazing trainers and great environment. I became stronger and more confident after joining Ekalavya Fitness."</p>
-      <h3>Rahul Sharma</h3>
-      <span>Member</span>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p>"The personal training is excellent. The trainers understand your goals and help you improve."</p>
-      <h3>Priya Singh</h3>
-      <span>Member</span>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="stars">★★★★★</div>
-      <p>"Clean gym, modern equipment and friendly staff. Highly recommended for fitness lovers."</p>
-      <h3>Arjun Kumar</h3>
-      <span>Member</span>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- BMI CALCULATOR -->
-<section class="bmi-section" id="bmi">
+  <section class="testimonials" id="testimonials">
 
     <div class="section-title">
-        <h2>BMI <span>CALCULATOR</span></h2>
-        <p>Check your Body Mass Index</p>
+
+      <h2>
+        WHAT OUR
+        <span>MEMBERS SAY</span>
+      </h2>
+
+      <p>
+        Real experiences from Ekalavya Fitness members
+      </p>
+
     </div>
+
+
+    <div class="testimonial-grid">
+
+
+      <div class="testimonial-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Amazing trainers and great environment.
+          I became stronger and more confident after
+          joining Ekalavya Fitness."
+        </p>
+
+        <h3>
+          Rahul Sharma
+        </h3>
+
+        <span>
+          Member
+        </span>
+
+      </div>
+
+
+      <div class="testimonial-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "The personal training is excellent.
+          The trainers understand your goals and
+          help you improve."
+        </p>
+
+        <h3>
+          Priya Singh
+        </h3>
+
+        <span>
+          Member
+        </span>
+
+      </div>
+
+
+      <div class="testimonial-card">
+
+        <div class="stars">
+          ★★★★★
+        </div>
+
+        <p>
+          "Clean gym, modern equipment and friendly staff.
+          Highly recommended for fitness lovers."
+        </p>
+
+        <h3>
+          Arjun Kumar
+        </h3>
+
+        <span>
+          Member
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       BMI CALCULATOR
+  ========================= -->
+
+  <section class="bmi-section" id="bmi">
+
+    <div class="section-title">
+
+      <h2>
+        BMI
+        <span>CALCULATOR</span>
+      </h2>
+
+      <p>
+        Check your Body Mass Index
+      </p>
+
+    </div>
+
 
     <div class="bmi-box">
 
-        <input type="number" id="bmiWeight" placeholder="Weight (kg)">
+      <input
+        type="number"
+        id="bmiWeight"
+        placeholder="Weight (kg)"
+        min="1">
 
-        <input type="number" id="bmiHeight" placeholder="Height (cm)">
+      <input
+        type="number"
+        id="bmiHeight"
+        placeholder="Height (cm)"
+        min="1">
 
-        <button type="button" onclick="calculateBMI()">
-            CALCULATE BMI
-        </button>
+      <button
+        type="button"
+        onclick="calculateBMI()">
+        CALCULATE BMI
+      </button>
 
-        <div id="bmiResult"></div>
+      <div id="bmiResult"></div>
 
     </div>
 
-</section>
+  </section>
 
-<!-- PRICING -->
-<section class="pricing" id="pricing">
-  <!-- PRICING -->
+
+  <!-- =========================
+       PRICING
+  ========================= -->
+
   <section class="pricing" id="pricing">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>MEMBERSHIP <span>PLANS</span></h2>
-        <p>Choose the plan that fits you</p>
+
+        <h2>
+          MEMBERSHIP
+          <span>PLANS</span>
+        </h2>
+
+        <p>
+          Choose the plan that fits you
+        </p>
+
       </div>
+
 
       <div class="price-grid">
 
+
         <!-- MONTHLY -->
+
         <div class="price-card">
 
-          <h3>MONTHLY PLAN</h3>
+          <h3>
+            MONTHLY PLAN
+          </h3>
 
-          <div class="price">₹499</div>
+          <div class="price">
+            ₹499
+          </div>
 
-          <p>per month</p>
+          <p>
+            per month
+          </p>
 
           <ul>
-            <li>Gym Access</li>
-            <li>Basic Fitness Guidance</li>
-            <li>Locker Facility</li>
-            <li>Workout Support</li>
+
+            <li>
+              Gym Access
+            </li>
+
+            <li>
+              Basic Fitness Guidance
+            </li>
+
+            <li>
+              Locker Facility
+            </li>
+
+            <li>
+              Workout Support
+            </li>
+
           </ul>
 
-          <a href="#contact" class="btn">JOIN NOW</a>
+          <a href="#contact" class="btn">
+            JOIN NOW
+          </a>
 
         </div>
 
 
         <!-- QUARTERLY -->
+
         <div class="price-card popular">
 
-          <div class="popular-label">MOST POPULAR</div>
+          <div class="popular-label">
+            MOST POPULAR
+          </div>
 
-          <h3>QUARTERLY PLAN</h3>
+          <h3>
+            QUARTERLY PLAN
+          </h3>
 
-          <div class="price">₹1,299</div>
+          <div class="price">
+            ₹1,299
+          </div>
 
-          <p>for 3 months</p>
+          <p>
+            for 3 months
+          </p>
 
           <ul>
-            <li>Gym Access</li>
-            <li>Personal Training</li>
-            <li>Diet Guidance</li>
-            <li>Locker Facility</li>
+
+            <li>
+              Gym Access
+            </li>
+
+            <li>
+              Personal Training
+            </li>
+
+            <li>
+              Diet Guidance
+            </li>
+
+            <li>
+              Locker Facility
+            </li>
+
           </ul>
 
-          <a href="#contact" class="btn">JOIN NOW</a>
+          <a href="#contact" class="btn">
+            JOIN NOW
+          </a>
 
         </div>
 
 
         <!-- YEARLY -->
+
         <div class="price-card">
 
-          <h3>YEARLY PLAN</h3>
+          <h3>
+            YEARLY PLAN
+          </h3>
 
-          <div class="price">₹3,999</div>
+          <div class="price">
+            ₹3,999
+          </div>
 
-          <p>per year</p>
+          <p>
+            per year
+          </p>
 
           <ul>
-            <li>Gym Access</li>
-            <li>Personal Training</li>
-            <li>Diet Plan</li>
-            <li>Priority Support</li>
+
+            <li>
+              Gym Access
+            </li>
+
+            <li>
+              Personal Training
+            </li>
+
+            <li>
+              Diet Plan
+            </li>
+
+            <li>
+              Priority Support
+            </li>
+
           </ul>
 
-          <a href="#contact" class="btn">JOIN NOW</a>
+          <a href="#contact" class="btn">
+            JOIN NOW
+          </a>
 
         </div>
+
 
       </div>
 
@@ -882,28 +1606,49 @@
   </section>
 
 
-  <!-- GALLERY -->
+  <!-- =========================
+       GALLERY
+  ========================= -->
+
   <section class="gallery" id="gallery">
 
     <div class="container">
 
       <div class="section-title">
-        <h2>GYM <span>GALLERY</span></h2>
+
+        <h2>
+          GYM
+          <span>GALLERY</span>
+        </h2>
+
       </div>
+
 
       <div class="gallery-grid">
 
-        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80">
+        <img
+          src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80"
+          alt="Gym Gallery 1">
 
-        <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80">
+        <img
+          src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&q=80"
+          alt="Gym Gallery 2">
 
-        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80">
+        <img
+          src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?auto=format&fit=crop&w=800&q=80"
+          alt="Gym Gallery 3">
 
-        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80">
+        <img
+          src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=800&q=80"
+          alt="Gym Gallery 4">
 
-        <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80">
+        <img
+          src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=800&q=80"
+          alt="Gym Gallery 5">
 
-        <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=800&q=80">
+        <img
+          src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba?auto=format&fit=crop&w=800&q=80"
+          alt="Gym Gallery 6">
 
       </div>
 
@@ -912,15 +1657,20 @@
   </section>
 
 
-  <!-- CONTACT -->
+  <!-- =========================
+       CONTACT
+  ========================= -->
+
   <section class="contact" id="contact">
 
     <div class="container contact-grid">
 
+
       <div class="contact-info">
 
         <h2>
-          JOIN <span>EKALAVYA FITNESS</span>
+          JOIN
+          <span>EKALAVYA FITNESS</span>
         </h2>
 
         <p>
@@ -928,32 +1678,52 @@
           Fill the form and our team will contact you.
         </p>
 
-        <p>📞 9931690987</p>
-        <p>📧 onelove222009@gmail.com</p>
-        <p>📍 Greater Noida, Uttar Pradesh, India</p>
-        <a href="https://www.google.com/maps/search/?api=1&query=Ekalavya+Fitness+Greater+Noida"
-   target="_blank"
-   class="map-button">
-  📍 GET DIRECTIONS
-</a>
+        <p>
+          📞 9931690987
+        </p>
+
+        <p>
+          📧 onelove222009@gmail.com
+        </p>
+
+        <p>
+          📍 Greater Noida, Uttar Pradesh, India
+        </p>
+
 
         <a
-  href="https://wa.me/919931690987?text=Hello%20Ekalavya%20Fitness%2C%20I%20want%20to%20know%20about%20membership."
-  target="_blank"
-  class="whatsapp-contact"
->
-  <span>💬</span>
-  Chat with us on WhatsApp
-</a>
+          href="https://www.google.com/maps/search/?api=1&query=Ekalavya+Fitness+Greater+Noida"
+          target="_blank"
+          class="map-button">
+
+          📍 GET DIRECTIONS
+
+        </a>
+
+
+        <a
+          href="https://wa.me/919931690987?text=Hello%20Ekalavya%20Fitness%2C%20I%20want%20to%20know%20about%20membership"
+          target="_blank"
+          class="whatsapp-contact">
+
+          <span>💬</span>
+
+          Chat with us on WhatsApp
+
+        </a>
 
       </div>
 
 
-      <!-- FORMSPREE FORM -->
+      <!-- =========================
+           FORMSPREE FORM
+      ========================= -->
+
       <form
-       id="joinForm" action="https://formspree.io/f/xrpzlobo"
-        method="POST"
-      >
+        id="joinForm"
+        action="https://formspree.io/f/xrpzlobo"
+        method="POST">
+
 
         <div class="form-row">
 
@@ -961,28 +1731,31 @@
             type="text"
             name="name"
             placeholder="Your Name"
-            required
-          >
+            required>
 
           <input
             type="email"
             name="email"
             placeholder="Email Address"
-            required
-          >
+            required>
 
         </div>
+
 
         <input
           type="tel"
           name="phone"
           placeholder="Phone Number"
-          required
-        >
+          required>
 
-        <select name="plan" required>
 
-          <option value="">Select Membership Plan</option>
+        <select
+          name="plan"
+          required>
+
+          <option value="">
+            Select Membership Plan
+          </option>
 
           <option value="Monthly - ₹499">
             Monthly - ₹499
@@ -998,13 +1771,18 @@
 
         </select>
 
+
         <textarea
           name="message"
-          placeholder="Your Message"
-        ></textarea>
+          placeholder="Your Message"></textarea>
 
-        <button type="submit" class="btn">
+
+        <button
+          type="submit"
+          class="btn">
+
           SUBMIT NOW →
+
         </button>
 
       </form>
@@ -1014,84 +1792,170 @@
   </section>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       GITHUB LINK
+  ========================= -->
+
+  <div class="github-link">
+
+    <a
+      href="https://github.com/ekal9931690987-wq"
+      target="_blank">
+
+      🐙 My GitHub Profile
+
+    </a>
+
+  </div>
+
+
+  <!-- =========================
+       FOOTER
+  ========================= -->
+
   <footer>
 
     <p>
-      © 2026 <span>Ekalavya Fitness</span>.
+      © 2026
+      <span>Ekalavya Fitness</span>.
       All Rights Reserved.
     </p>
 
   </footer>
-<div class="github-link">
-    <a href="https://github.com/ekal9931690987-wq" target="_blank">
-        🐙 My GitHub Profile
-    </a>
-</div>
-<script>
-function toggleMenu() {
-  const menu = document.getElementById("mobileMenu");
-  const button = document.getElementById("menuButton");
 
-  if (menu.style.display === "flex") {
-    menu.style.display = "none";
-    button.textContent = "☰";
-  } else {
-    menu.style.display = "flex";
-    menu.style.flexDirection = "column";
-    menu.style.position = "absolute";
-    menu.style.top = "70px";
-    menu.style.left = "0";
-    menu.style.width = "100%";
-    menu.style.background = "#050505";
-    menu.style.padding = "20px 0";
-    menu.style.gap = "18px";
-    menu.style.zIndex = "9999";
-    menu.style.alignItems = "center";
 
-    button.textContent = "✕";
-  }
-}
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
 
-document.querySelectorAll("#mobileMenu a").forEach(function(link) {
-  link.addEventListener("click", function() {
-    document.getElementById("mobileMenu").style.display = "none";
-    document.getElementById("menuButton").textContent = "☰";
-  });
-});
-</script>
-<script>
-function calculateBMI() {
+  <script>
 
-    let weight = parseFloat(document.getElementById("bmiWeight").value);
-    let height = parseFloat(document.getElementById("bmiHeight").value);
+    /* =========================
+       MOBILE MENU
+    ========================= */
 
-    if (!weight || !height || height <= 0) {
+    function toggleMenu() {
+
+      const menu = document.getElementById("mobileMenu");
+      const button = document.getElementById("menuButton");
+
+      if (menu.style.display === "flex") {
+
+        menu.style.display = "none";
+        button.textContent = "☰";
+
+      } else {
+
+        menu.style.display = "flex";
+        menu.style.flexDirection = "column";
+        menu.style.position = "absolute";
+        menu.style.top = "70px";
+        menu.style.left = "0";
+        menu.style.width = "100%";
+        menu.style.background = "#050505";
+        menu.style.padding = "20px 0";
+        menu.style.gap = "18px";
+        menu.style.zIndex = "9999";
+        menu.style.alignItems = "center";
+
+        button.textContent = "✕";
+      }
+    }
+
+
+    /* =========================
+       CLOSE MOBILE MENU
+    ========================= */
+
+    document
+      .querySelectorAll("#mobileMenu a")
+      .forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+          document.getElementById("mobileMenu").style.display = "none";
+
+          document.getElementById("menuButton").textContent = "☰";
+
+        });
+
+      });
+
+
+    /* =========================
+       BMI CALCULATOR
+    ========================= */
+
+    function calculateBMI() {
+
+      let weight =
+        parseFloat(
+          document.getElementById("bmiWeight").value
+        );
+
+      let height =
+        parseFloat(
+          document.getElementById("bmiHeight").value
+        );
+
+
+      if (
+        !weight ||
+        !height ||
+        weight <= 0 ||
+        height <= 0
+      ) {
+
         document.getElementById("bmiResult").innerHTML =
-            "Please enter valid weight and height.";
+          "Please enter valid weight and height.";
+
         return;
-    }
+      }
 
-    let heightInMeter = height / 100;
-    let bmi = weight / (heightInMeter * heightInMeter);
 
-    let category = "";
+      let heightInMeter =
+        height / 100;
 
-    if (bmi < 18.5) {
+
+      let bmi =
+        weight /
+        (heightInMeter * heightInMeter);
+
+
+      let category = "";
+
+
+      if (bmi < 18.5) {
+
         category = "Underweight";
-    } else if (bmi < 25) {
+
+      } else if (bmi < 25) {
+
         category = "Normal Weight";
-    } else if (bmi < 30) {
+
+      } else if (bmi < 30) {
+
         category = "Overweight";
-    } else {
+
+      } else {
+
         category = "Obese";
+
+      }
+
+
+      document.getElementById("bmiResult").innerHTML =
+        "Your BMI: " +
+        bmi.toFixed(1) +
+        "<br>" +
+        "Category: " +
+        category;
+
     }
 
-    document.getElementById("bmiResult").innerHTML =
-        "Your BMI: " + bmi.toFixed(1) + "<br>" +
-        "Category: " + category;
-}
-</script>
+  </script>
+
 
 </body>
+
 </html>
