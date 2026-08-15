@@ -246,7 +246,7 @@
       color: #ffc400;
       margin-bottom: 10px;
     }
-
+  
     /* WHY US */
     .why {
       background: #151515;
@@ -273,7 +273,7 @@
     .why-card h3 {
       color: #ffc400;
     }
-
+    
     /* PRICING */
     .pricing {
       background: #0b0b0b;
@@ -533,7 +533,7 @@
       </ul>
 
       <a href="#contact" class="nav-btn">JOIN NOW</a>
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <button class="menu-btn" id="menuButton" onclick="toggleMenu()">☰</button>
     </nav>
   </header>
 
@@ -737,7 +737,68 @@
 
   </section>
 
+ <!-- TESTIMONIALS -->
 
+<section class="testimonials" id="testimonials">
+
+  <div class="section-title">
+    <h2>WHAT OUR <span>MEMBERS SAY</span></h2>
+    <p>Real experiences from Ekalavya Fitness members</p>
+  </div>
+
+  <div class="testimonial-grid">
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Amazing trainers and great environment. I became stronger and more confident after joining Ekalavya Fitness."</p>
+      <h3>Rahul Sharma</h3>
+      <span>Member</span>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"The personal training is excellent. The trainers understand your goals and help you improve."</p>
+      <h3>Priya Singh</h3>
+      <span>Member</span>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Clean gym, modern equipment and friendly staff. Highly recommended for fitness lovers."</p>
+      <h3>Arjun Kumar</h3>
+      <span>Member</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- BMI CALCULATOR -->
+<section class="bmi-section" id="bmi">
+
+    <div class="section-title">
+        <h2>BMI <span>CALCULATOR</span></h2>
+        <p>Check your Body Mass Index</p>
+    </div>
+
+    <div class="bmi-box">
+
+        <input type="number" id="bmiWeight" placeholder="Weight (kg)">
+
+        <input type="number" id="bmiHeight" placeholder="Height (cm)">
+
+        <button type="button" onclick="calculateBMI()">
+            CALCULATE BMI
+        </button>
+
+        <div id="bmiResult"></div>
+
+    </div>
+
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
   <!-- PRICING -->
   <section class="pricing" id="pricing">
 
@@ -890,7 +951,7 @@
 
       <!-- FORMSPREE FORM -->
       <form
-        action="https://formspree.io/f/xrpzlobo"
+       id="joinForm" action="https://formspree.io/f/xrpzlobo"
         method="POST"
       >
 
@@ -970,9 +1031,11 @@
 <script>
 function toggleMenu() {
   const menu = document.getElementById("mobileMenu");
+  const button = document.getElementById("menuButton");
 
   if (menu.style.display === "flex") {
     menu.style.display = "none";
+    button.textContent = "☰";
   } else {
     menu.style.display = "flex";
     menu.style.flexDirection = "column";
@@ -985,7 +1048,48 @@ function toggleMenu() {
     menu.style.gap = "18px";
     menu.style.zIndex = "9999";
     menu.style.alignItems = "center";
+
+    button.textContent = "✕";
   }
+}
+
+document.querySelectorAll("#mobileMenu a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    document.getElementById("mobileMenu").style.display = "none";
+    document.getElementById("menuButton").textContent = "☰";
+  });
+});
+</script>
+<script>
+function calculateBMI() {
+
+    let weight = parseFloat(document.getElementById("bmiWeight").value);
+    let height = parseFloat(document.getElementById("bmiHeight").value);
+
+    if (!weight || !height || height <= 0) {
+        document.getElementById("bmiResult").innerHTML =
+            "Please enter valid weight and height.";
+        return;
+    }
+
+    let heightInMeter = height / 100;
+    let bmi = weight / (heightInMeter * heightInMeter);
+
+    let category = "";
+
+    if (bmi < 18.5) {
+        category = "Underweight";
+    } else if (bmi < 25) {
+        category = "Normal Weight";
+    } else if (bmi < 30) {
+        category = "Overweight";
+    } else {
+        category = "Obese";
+    }
+
+    document.getElementById("bmiResult").innerHTML =
+        "Your BMI: " + bmi.toFixed(1) + "<br>" +
+        "Category: " + category;
 }
 </script>
 
